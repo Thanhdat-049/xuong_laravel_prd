@@ -2,6 +2,7 @@
 
 use App\Events\OderShipped;
 use App\Http\Controllers\LamController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    OderShipped::dispatch('okok');
-    dd(1);
-});
+Route::get('/', [OrderController::class, 'index']);
+Route::get('/order', [OrderController::class, 'order'])->name('order');
+Route::get('/order/create', [OrderController::class, 'create'])->name('order.create');
+Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
 
 
 Route::get('y1',[LamController::class, 'y1']);

@@ -2,12 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\OderShipped;
+use App\Events\OrderCreated;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Support\Facades\Log;
 
-class LogOrderShipped
+class UpdateStock
 {
     /**
      * Create the event listener.
@@ -20,9 +19,8 @@ class LogOrderShipped
     /**
      * Handle the event.
      */
-    public function handle(OderShipped $event): void
+    public function handle(OrderCreated $event): void
     {
-        Log::debug('__CLASS__', ['event' => $event->ahihi]);
-
+        //
     }
 }
