@@ -4,6 +4,7 @@ use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
 
+
 return [
 
     /*
@@ -51,6 +52,12 @@ return [
     */
 
     'channels' => [
+        'database' => [
+            'driver' => 'database',
+            'table' => 'logs',
+            'connection' => null,
+        ],
+
         'stack' => [
             'driver' => 'stack',
             'channels' => ['single'],

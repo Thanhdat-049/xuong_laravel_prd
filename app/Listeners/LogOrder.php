@@ -3,9 +3,10 @@
 namespace App\Listeners;
 
 use App\Events\OrderCreated;
+use App\Models\Log;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Support\Facades\Log;
+// use Illuminate\Support\Facades\Log;
 
 class LogOrder
 {
@@ -22,10 +23,12 @@ class LogOrder
      */
     public function handle(OrderCreated $event): void
     {
-        Log::debug('Đơn hàng', [
-            ['Product name' => $event->validatedData['product_name']],
-            ['Quantity' => $event->validatedData['quantity']],
-            ['Price' => $event->validatedData['price']]
+        $validatedData = $event->validatedData;
+        $level = 'success';
+
+        Log::create([   
+            'level' => $level,
+            'message' => "Đơn hàng mới được tạo: Sản phẩm {$validatedData['product_name']}, Số lượng: {$validatedData['quantity']}, Giá: {$validatedData['price']}",
         ]);
 
     }

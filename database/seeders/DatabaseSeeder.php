@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\Comment;
 use App\Models\Image;
 use App\Models\Rating;
+use App\Models\Stock;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Database\Seeder;
@@ -48,11 +49,11 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $commentable_type = ['App\Models\Video','App\Models\Image','App\Models\Article'];
+        $commentable_type = ['App\Models\Video', 'App\Models\Image', 'App\Models\Article'];
 
         for ($i = 0; $i < 30; $i++) {
             Comment::create([
-                'user_id' => rand(1,10),
+                'user_id' => rand(1, 10),
                 'content' => fake()->text(100),
                 'commentable_id' => rand(1, 10),
                 'commentable_type' => fake()->randomElement($commentable_type),
@@ -67,7 +68,12 @@ class DatabaseSeeder extends Seeder
                 'rateable_type' => fake()->randomElement($commentable_type),
             ]);
         }
+        for ($i = 0; $i < 5; $i++) {
+            Stock::create([
+                'product_name'=>fake()->name(),
+                'quantity' => rand(5000, 10000),
 
-
+            ]);
+        }
     }
 }

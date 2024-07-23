@@ -24,9 +24,9 @@ Route::get('/order/create', [OrderController::class, 'create'])->name('order.cre
 Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
 
 
-Route::get('y1',[LamController::class, 'y1']);
-Route::get('y2',[LamController::class,'y2']);
-Route::get('y3',[LamController::class, 'y3']);
-Route::get('y4',[LamController::class, 'y4']);
-Route::get('y5/{id}',[LamController::class, 'y5']);
-Route::get('y6', [LamController::class, 'y6']);
+// Route::get('y1',[LamController::class, 'y1']);
+// Route::get('y2',[LamController::class,'y2']);
+// Route::get('y3',[LamController::class, 'y3']);
+// Route::get('y4',[LamController::class, 'y4']);
+// Route::get('y5/{id}',[LamController::class, 'y5']);
+// Route::get('y6', [LamController::class, 'y6']);
